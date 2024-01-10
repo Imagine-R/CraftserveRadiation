@@ -20,4 +20,4 @@ Najnowsze stabilne kompilacje znajdują sie w https://github.com/Craftserve/Craf
 Kompilacja
 ---
 
-Projekt korzysta z [Apache Maven](https://maven.apache.org/). Wykonaj `mvn clean install` aby go zbudować.
+Projekt korzysta z [Gradle](https://gradle.org). Wykonaj `gradle clean build shadowJar` aby go zbudować.

@@ -1,9 +1,9 @@
-name: '${project.name}'
-version: '${project.version}'
+name: ${projectName}
+version: ${projectVersion}
 authors: ${authors}
-website: '${project.url}'
+website: ${projectUrl}
 main: pl.craftserve.radiation.RadiationPlugin
-api-version: '${apiVersion}'
+api-version: ${apiVersion}
 description: Makes world radioactive
 depend: ['WorldGuard']
 
