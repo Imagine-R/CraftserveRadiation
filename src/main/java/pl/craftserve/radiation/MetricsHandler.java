@@ -26,8 +26,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
-import pl.craftserve.metrics.pluginmetricslite.MetricSubmitEvent;
-import pl.craftserve.metrics.pluginmetricslite.MetricsLite;
+//import pl.craftserve.metrics.pluginmetricslite.MetricSubmitEvent;
+//import pl.craftserve.metrics.pluginmetricslite.MetricsLite;
 import pl.craftserve.radiation.nms.RadiationNmsBridge;
 
 import java.io.IOException;
@@ -56,22 +56,22 @@ public class MetricsHandler implements Listener  {
     public void start() {
         this.server.getPluginManager().registerEvents(this, this.plugin);
 
-        try {
-            MetricsLite.start(this.plugin);
-        } catch (Throwable throwable) {
-            logger.log(Level.SEVERE, "Could not start metrics.", throwable);
-        }
+//        try {
+//            MetricsLite.start(this.plugin);
+//        } catch (Throwable throwable) {
+//            logger.log(Level.SEVERE, "Could not start metrics.", throwable);
+//        }
 
         Metrics metrics = new Metrics(this.plugin, B_STATS_PLUGIN_ID);
         this.setupBStatsCharts(metrics);
     }
 
     public void stop() {
-        try {
-            MetricsLite.stopIfRunning(this.plugin);
-        } catch (Throwable throwable) {
-            logger.log(Level.SEVERE, "Could not stop metrics.", throwable);
-        }
+//        try {
+//            MetricsLite.stopIfRunning(this.plugin);
+//        } catch (Throwable throwable) {
+//            logger.log(Level.SEVERE, "Could not stop metrics.", throwable);
+//        }
 
         HandlerList.unregisterAll(this);
     }
@@ -118,20 +118,20 @@ public class MetricsHandler implements Listener  {
         metrics.addCustomChart(new SimplePie("nms_bridge_class", this.nmsBridgeClass::getName));
     }
 
-    @EventHandler(priority = EventPriority.NORMAL)
-    public void onMetricSubmit(MetricSubmitEvent event) {
-        Map<String, Radiation> activeRadiations = this.plugin.getActiveRadiations();
-
-        Map<NamespacedKey, Object> data = event.getData();
-        data.put(this.key("lugols_iodione_affected_count"), (int) this.server.getOnlinePlayers().stream()
-                .filter(this::hasEffect)
-                .count());
-        data.put(this.key("active_radiations_count"), activeRadiations.size());
-        data.put(this.key("active_radiations_affected_count"), activeRadiations.values().stream()
-                .mapToInt(radiation -> radiation.getAffectedPlayers().size())
-                .sum());
-        data.put(this.key("nms_bridge_class"), this.nmsBridgeClass.getName());
-    }
+//    @EventHandler(priority = EventPriority.NORMAL)
+//    public void onMetricSubmit(MetricSubmitEvent event) {
+//        Map<String, Radiation> activeRadiations = this.plugin.getActiveRadiations();
+//
+//        Map<NamespacedKey, Object> data = event.getData();
+//        data.put(this.key("lugols_iodione_affected_count"), (int) this.server.getOnlinePlayers().stream()
+//                .filter(this::hasEffect)
+//                .count());
+//        data.put(this.key("active_radiations_count"), activeRadiations.size());
+//        data.put(this.key("active_radiations_affected_count"), activeRadiations.values().stream()
+//                .mapToInt(radiation -> radiation.getAffectedPlayers().size())
+//                .sum());
+//        data.put(this.key("nms_bridge_class"), this.nmsBridgeClass.getName());
+//    }
 
     private boolean hasEffect(Player player) {
         Objects.requireNonNull(player, "player");

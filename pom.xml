@@ -120,11 +120,11 @@
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.github.Craftserve</groupId>
-            <artifactId>PluginMetrics</artifactId>
-            <version>lite-SNAPSHOT</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.Craftserve</groupId>-->
+<!--            <artifactId>PluginMetrics</artifactId>-->
+<!--            <version>lite-SNAPSHOT</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.bstats</groupId>
