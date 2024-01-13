@@ -101,7 +101,10 @@ public final class RadiationPlugin extends JavaPlugin {
             case "v1_19_R1":
                 return new V1_19_R1NmsBridge(serverVersion);
             case "v1_19_R2":
+            case "v1_20_R1":
                 return new V1_19_R2NmsBridge(serverVersion);
+            case "v1_20_R2":
+                return new V1_20_R2NmsBridge(serverVersion);
             case "v1_20_R3":
                 return new V1_20_R3NmsBridge(serverVersion);
             default:
